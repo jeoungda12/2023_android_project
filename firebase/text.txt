@@ -1,0 +1,27 @@
+파이어베이스 연동
+
+1. 파이어베이스 사이트에서 앱 등록하기
+앱 이름은 build.gradle.kts에 id값으로 등록해야된다.
+
+2. google-services.json을 다운받아서 모듈의 루트 디렉터리에 복사한다.
+
+3. gradle 파일에 라이브러리 추가하기
+모듈 수준
+
+plugins {
+  id("com.android.application")
+
+  id("com.google.gms.google-services")
+
+  ...
+}
+
+dependencies {
+  implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+
+  implementation("com.google.firebase:firebase-analytics-ktx")
+
+}
+
+프로젝트 수준
+id("com.google.gms.google-services") version "4.4.0" apply false
