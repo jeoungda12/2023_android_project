@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "2023_android_project"
 include(":app")
 include(":myapplication")
-include(":firebase")
+include(":firebase2")
