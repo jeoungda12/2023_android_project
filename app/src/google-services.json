@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "482023737730",
+    "project_id": "muddyday-c8a50",
+    "storage_bucket": "muddyday-c8a50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482023737730:android:f686e0efaf58ad379ba79b",
+        "android_client_info": {
+          "package_name": "com.example.a2023_android_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482023737730-idlfq0k8cmd2fvohgsoh6qk6uhmhveo7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a2023_android_project",
+            "certificate_hash": "6ac6fb62027227af0d1ebfcdeaa18662c9788bbc"
+          }
+        },
+        {
+          "client_id": "482023737730-cq3lsin6aohe148ro8ks1skfd0nv3tjs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOZ6h_UN88IaMEwaeb-h7HIjfJGPVpr_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482023737730-cq3lsin6aohe148ro8ks1skfd0nv3tjs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
