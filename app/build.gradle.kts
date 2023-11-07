@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -46,4 +49,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.naver.maps:map-sdk:3.17.0")
     implementation ("com.google.android.gms:play-services-location:20.0.0")
+
+    implementation("androidx.appcompat:appcompat:1.0.2")
 }

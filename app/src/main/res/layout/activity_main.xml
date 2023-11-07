@@ -45,12 +45,14 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="30dp">
                 <Button
+                    android:id="@+id/bt_reservation"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:text="예약">
                 </Button>
                 <Button
+                    android:id="@+id/bt_aiCamera"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_weight="1"
@@ -61,6 +63,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/bt_community"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_weight="1"
@@ -84,6 +87,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
                 <Button
+                    android:id="@+id/bt_youtube"
                     android:layout_marginLeft="30dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -91,6 +95,7 @@
                     android:text="유튜브">
                 </Button>
                 <Button
+                    android:id="@+id/bt_insta"
                     android:layout_marginLeft="30dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -98,6 +103,7 @@
                     android:text="인스타">
                 </Button>
                 <Button
+                    android:id="@+id/bt_naver"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_width="50dp"
