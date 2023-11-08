@@ -34,7 +34,11 @@ class SingUpActivity : AppCompatActivity() {
             Log.d("signup", "회원가입 loginButton Event!")
             val email: String = binding.loginId.text.toString()
             var password: String = binding.loginPassword.text.toString()
-            firebaseSingup(password, email)
+            if (email.isEmpty() || password.isEmpty()){
+                Toast.makeText(baseContext, "Email과 Password를 입력해주세요", Toast.LENGTH_SHORT).show()
+            }else {
+                firebaseSingup(password, email)
+            }
         }
     }
 

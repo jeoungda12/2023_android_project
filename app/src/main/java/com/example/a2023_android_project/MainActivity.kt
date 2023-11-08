@@ -24,11 +24,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val intent = Intent(Intent.ACTION_VIEW)
 
+        //val CAMERA = arrayListOf(Manifest.permission.)
         binding.btCommunity.setOnClickListener{
             Log.d("button","btcommunity button success!")
         }
         binding.btAiCamera.setOnClickListener{
             Log.d("button","btAiCamera button success!")
+            startActivity(Intent(this, CameraActivity::class.java))
         }
 
         //예약 버튼
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         //로그아웃
         binding.btLogout.setOnClickListener{
             Log.d("button","Logout!")
-            MyApplication.auth.signOut()
+            auth.signOut()
             startActivity(Intent(this, LoginActivity::class.java))
         }
 

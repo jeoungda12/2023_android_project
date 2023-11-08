@@ -79,40 +79,7 @@
         android:textColor="@color/white">
     </androidx.appcompat.widget.AppCompatButton>
 
-<!--    비밀번호 찾기 및 회원가입-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:paddingTop="20dp">
-        <TextView
-            android:id="@+id/login_find_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:textSize="24dp"
-            android:text="비밀번호찾기"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/font1"
-            android:clickable="true">
-        </TextView>
-        <TextView
-            android:id="@+id/login_singUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:textSize="24dp"
-            android:text="회원가입"
-            android:fontFamily="@font/font1"
-            android:textColor="@android:color/black"
-            android:clickable="true">
-        </TextView>
 
-    </LinearLayout>
 
 
 <!--    구글 및 페이스북 이미지-->
