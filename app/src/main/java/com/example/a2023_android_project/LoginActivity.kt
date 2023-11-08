@@ -37,7 +37,9 @@ class LoginActivity : AppCompatActivity() {
             Log.d("login", "비밀번호 찾기 화면으로 이동합니다")
         }
         binding_login.loginSingUp.setOnClickListener{
+            val intent = Intent(this, SingUpActivity::class.java)
             Log.d("login", "회원가입화면으로 이동합니다")
+            startActivity(intent)
         }
     }
 }

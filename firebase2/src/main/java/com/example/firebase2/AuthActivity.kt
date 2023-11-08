@@ -78,15 +78,18 @@ class AuthActivity : AppCompatActivity() {
             //이메일, 비밀번호 회원가입
             val email: String = binding.authEmailEditView.text.toString()
             val password: String = binding.authPasswordEditView.text.toString()
+
             MyApplication.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){ task->
+                    //사용자가 적었던 정보 삭제
                     binding.authEmailEditView.text.clear()
                     binding.authPasswordEditView.text.clear()
+                    //회원가입 성공
                     if(task.isSuccessful){
                         //비밀번호는 최소 6자 이상
                         //메일 보내기
                         MyApplication.auth.currentUser?.sendEmailVerification()
-                            ?.addOnCompleteListener{ sendTask ->
+                            ?.addOnCompleteListener{ sendTask -> //이메일 전송
                                 if (sendTask.isSuccessful){
                                     Toast.makeText(baseContext, "회원가입에 성공하였습니다. 전송된 메일을 확인해주세요.",
                                         Toast.LENGTH_SHORT).show()
