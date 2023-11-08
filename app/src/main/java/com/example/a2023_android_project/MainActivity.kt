@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.a2023_android_project.MyApplication.Companion.auth
 import com.example.a2023_android_project.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -15,14 +16,14 @@ import com.naver.maps.map.OnMapReadyCallback
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        auth = Firebase.auth
-
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = Intent(Intent.ACTION_VIEW)
+
         binding.btCommunity.setOnClickListener{
             Log.d("button","btcommunity button success!")
         }
@@ -30,12 +31,21 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             Log.d("button","btAiCamera button success!")
         }
 
+        //예약 버튼
         binding.btReservation.setOnClickListener{
-            Log.d("button","btcommunity btReservation success!")
+            Log.d("button","btReservation btReservation success!")
+            intent.setData(Uri.parse("https://pf.kakao.com/_axetVs/87283380"))
+            startActivity(intent)
+        }
+
+        //로그아웃
+        binding.btLogout.setOnClickListener{
+            Log.d("button","Logout!")
+            MyApplication.auth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         //네이버 인스타 유투브 외부 하이퍼링크 연결
-        val intent = Intent(Intent.ACTION_VIEW)
         binding.btYoutube.setOnClickListener{
             Log.d("button","btcommunity btYoutube success!")
             intent.setData(Uri.parse("https://www.youtube.com/@muddyday"))

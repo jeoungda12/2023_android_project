@@ -127,6 +127,7 @@
         android:gravity="bottom"
         >
         <ImageView
+            android:id="@+id/login_google"
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:background="@null"
@@ -135,6 +136,7 @@
         >
         </ImageView>
         <ImageView
+            android:id="@+id/login_facebook"
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:background="@null"

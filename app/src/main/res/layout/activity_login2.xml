@@ -39,7 +39,7 @@
         android:gravity="center"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
-        android:text="아이디와 비밀번호를 입력해주세요"
+        android:text="이메일과 비밀번호를 입력해주세요"
         android:shadowDx="4.0"
         android:shadowDy="1.0"
         android:shadowColor="#FFEB3B"
@@ -53,7 +53,8 @@
             android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Id"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:layout_marginTop="30dp">
         </EditText>
         <EditText
@@ -61,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Password"
+            android:inputType="textPassword"
             android:layout_marginBottom="30dp">
         </EditText>
 
