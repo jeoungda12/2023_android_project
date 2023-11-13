@@ -2,6 +2,7 @@ package com.example.a2023_android_project
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -107,6 +108,7 @@ class CameraActivity : AppCompatActivity() {
 
         //ImageCapture 객체에서 takePicture()를 호출합니다. outputOption, 실행자, 이미지가
         //저장될 떄의 콜백을 전달 합니다.
+        val intent = Intent(this, GalleryActivity::class.java)
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
@@ -122,6 +124,10 @@ class CameraActivity : AppCompatActivity() {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
+                    //촬영한 사진을 GalleryActivity에 출력시켜야된다.
+                    Log.d("jgh", "사진 촬영성공 갤러리액티비티로 이동")
+                    intent.putExtra("camera_img_uri", output.savedUri)
+                    startActivity(intent)
                 }
             }
         )

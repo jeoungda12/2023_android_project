@@ -52,6 +52,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -79,5 +80,8 @@ dependencies {
 
     //image 처리 관련 Coil 라이브러리
     implementation("io.coil-kt:coil:2.0.0-rc03")
+
+    //facebook
+    implementation("com.facebook.android:facebook-login:latest.release")
 
 }
