@@ -1,17 +1,23 @@
 package com.example.a2023_android_project
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a2023_android_project.MyApplication.Companion.auth
 import com.example.a2023_android_project.databinding.ActivityMainBinding
+import com.facebook.FacebookSdk
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.codec.binary.Base64
 import com.google.firebase.ktx.Firebase
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -22,7 +28,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(Intent.ACTION_VIEW)
+
 
         //val CAMERA = arrayListOf(Manifest.permission.)
         binding.btCommunity.setOnClickListener{
@@ -30,7 +36,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         binding.btAiCamera.setOnClickListener{
             Log.d("button","btAiCamera button success!")
-            startActivity(Intent(this, CameraActivity::class.java))
+            startActivity(Intent(this, GalleryActivity::class.java))
         }
 
         //예약 버튼
