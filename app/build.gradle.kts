@@ -72,5 +72,12 @@ dependencies {
     implementation("androidx.camera:camera-video:${camerax_version}")
     implementation("androidx.camera:camera-view:${camerax_version}")
     implementation("androidx.camera:camera-extensions:${camerax_version}")
+    implementation("io.coil-kt:coil-compose:2.3.0")
+
+    val activity_version = "1.8.0"
+    implementation("androidx.activity:activity-ktx:$activity_version")
+
+    //image 처리 관련 Coil 라이브러리
+    implementation("io.coil-kt:coil:2.0.0-rc03")
 
 }

@@ -20,6 +20,9 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.core.Preview
 import androidx.camera.core.CameraSelector
 import android.util.Log
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
@@ -60,17 +63,74 @@ class CameraActivity : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        // Set up the listeners for take photo and video capture buttons
+        //사진 촬영 버튼 이벤트
         viewBinding.imageCaptureButton.setOnClickListener { takePhoto() }
-        viewBinding.videoCaptureButton.setOnClickListener { captureVideo() }
+
+        //갤러리 연동 기능 (PickMedia)
+//        val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {}
+//        // Set up the listeners for take photo and video capture buttons
+//        viewBinding.imageCaptureButton.setOnClickListener { takePhoto() }
+//        viewBinding.videoCaptureButton.setOnClickListener {
+//            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+//            Log.d("PhotoPicker","pickMedia : $pickMedia")
+//        }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
-
     }
 
-    private fun takePhoto() {}
+    //Take Photo 버튼을 호출되는 메서드
+    private fun takePhoto() {
+        //ImageCapture 사용 사례에 대한 참조를 가져온다.
+        //사용 사례가 null이면 함수를 종료한다.
+        //이미지 캡처가 설정되기 전에 사진 버튼을 탭하면 null이 된다.
+        val imageCapture = imageCapture ?: return
 
-    private fun captureVideo() {}
+        //이미지를 보관할 MediaStore 콘텐츠 값을 만든다.
+        //MediaStore의 표시 이름이 고유하도록 파임스탬프를 사용한다.
+        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+            .format(System.currentTimeMillis())
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CameraX-Image")
+            }
+        }
+
+        //outputOption 객체를 만든다. 이 객체에서 원하는 출력 방법에 관한 사항을 지정할 수 있다.
+        //출력을 MediaStore에 저장하여 다른 앱에서 표시할 수 있또록 MediaStore 항목을 추가한다.
+        val outputOptions = ImageCapture.OutputFileOptions
+            .Builder(contentResolver,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                contentValues)
+            .build()
+
+        //ImageCapture 객체에서 takePicture()를 호출합니다. outputOption, 실행자, 이미지가
+        //저장될 떄의 콜백을 전달 합니다.
+        imageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                //이미지 캡처에 실패하거나 이미지 캡처 저장에 실패하는 경우 오류 사례를 추가합니다.
+                override fun onError(exc: ImageCaptureException) {
+                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                }
+                //사진을 성공적으로 촬영하고, 만든 파일에 사진을 저장하고, 사용자에게 사진 촬영이 완료되었음을
+                //알리는 토스트 메시지를 표시하고, 로그 구문을 출력한다.
+                override fun
+                        onImageSaved(output: ImageCapture.OutputFileResults){
+                    val msg = "Photo capture succeeded: ${output.savedUri}"
+                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, msg)
+                }
+            }
+        )
+    }
+
+    //PhotoPicker / Android13(SDK33)이상 버전만 가능하다
+    private fun captureVideo() {
+
+    }
 
     private fun startCamera() {
         //ProcessCameraProvider 인스턴스를 만든다.
@@ -96,6 +156,8 @@ class CameraActivity : AppCompatActivity() {
                     it.setSurfaceProvider(viewBinding.viewFinder.surfaceProvider)
                 }
 
+            imageCapture = ImageCapture.Builder().build()
+
             // Select back camera as a default
             //CameraSelector 객체를 만들고 Deafult_back_camera를 선택한다.
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -109,13 +171,16 @@ class CameraActivity : AppCompatActivity() {
 
                 // Bind use cases to camera
                 cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview)
+                    this, cameraSelector, preview, imageCapture)
+
             //앱의 더 이상 포커스가 없는 경우와 같이 이 코드는 몇 가지의 방법으로 실패 할 수 있다.
             } catch(exc: Exception) {
                 Log.e(TAG, "Use case binding failed", exc)
             }
 
         }, ContextCompat.getMainExecutor(this))
+
+
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {

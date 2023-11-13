@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         binding.btAiCamera.setOnClickListener{
             Log.d("button","btAiCamera button success!")
-            startActivity(Intent(this, CameraActivity::class.java))
+            startActivity(Intent(this, GalleryActivity::class.java))
         }
 
         //예약 버튼
