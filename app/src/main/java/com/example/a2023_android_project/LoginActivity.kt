@@ -44,6 +44,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //구글 로그인
+        //구글 로그인 테스트를 위해서는 SH1를 등록해줘야 한다(gradle signingReport)
+        //SH1은 컴퓨터마다 고유의 값이기 때문에 다른 컴퓨터에서 테스트 진행하려면  SH1를 추가해야한다.
         val requestLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult())
         {
@@ -64,13 +66,15 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(intent)
                             //changeVisibility("login")
                         } else{
-                            Log.d("signup","구글 로그인 실패")
+                            Toast.makeText(this, "구글 로그인 실패!", Toast.LENGTH_SHORT).show()
                             //구글 로그인 실패
                             //changeVisibility("logout")
                         }
                     }
             } catch (e: ApiException){
+                Toast.makeText(this, "구글 로그인 실패!", Toast.LENGTH_SHORT).show()
                 Log.d("signup","구글 로그인 실패")
+                Log.e("signup", e.toString())
                 //changeVisibility("logout")
             }
         }

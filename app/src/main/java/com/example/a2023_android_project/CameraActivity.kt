@@ -35,6 +35,11 @@ import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+/*
+    CemraX 개발 참고
+    https://developer.android.com/codelabs/camerax-getting-started?hl=ko#4
+ */
+
 typealias LumaListener = (luma: Double) -> Unit
 
 class CameraActivity : AppCompatActivity() {
