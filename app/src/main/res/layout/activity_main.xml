@@ -9,11 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
+
         <ImageView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:src="@drawable/main_character_01">
-        </ImageView>
+            android:layout_width="73dp"
+            android:layout_height="90dp"
+            android:src="@drawable/main_character_01"
+            android:layout_marginLeft="0dp"></ImageView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,9 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -53,36 +53,66 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="30dp">
-                <Button
+
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/bt_reservation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:text="예약">
-                </Button>
-                <Button
+                    android:layout_width="210dp"
+                    android:layout_height="170dp"
+                    android:scaleType="centerInside"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/bt_reservation_img">
+                </androidx.appcompat.widget.AppCompatImageButton>
+
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/bt_aiCamera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:text="AI 도자기 평가"
-                    android:layout_marginLeft="10dp">
-                </Button>
+                    android:layout_width="135dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/bt_aiCamera_img">
+                </androidx.appcompat.widget.AppCompatImageButton>
 
             </LinearLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/bt_community"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="550dp"
                 android:layout_weight="1"
-                android:text="도자기 커뮤니티 연결 및 도자기 사진 출력"
-                android:layout_marginLeft="10dp">
-            </Button>
+                android:src="@drawable/intro_background"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+            </androidx.appcompat.widget.AppCompatImageButton>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="찾아오는 길"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textSize="40dp"
+                    android:fontFamily="@font/font1"
+                    android:layout_marginBottom="5dp">
+                </TextView>
 
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/heart_img"></ImageView>
+            </LinearLayout>
             <!-- 네이버 지도 -->
             <fragment
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/map_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
@@ -105,6 +135,7 @@
                     android:src="@drawable/youtube"
                     android:scaleType="centerInside"
                     android:layout_gravity="center"
+                    android:background="@android:color/transparent"
                    >
                 </androidx.appcompat.widget.AppCompatImageButton>
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
@@ -114,7 +145,8 @@
                     android:layout_weight="1"
                     android:src="@drawable/naver"
                     android:scaleType="centerInside"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent">
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
                     android:id="@+id/bt_naver"
@@ -123,7 +155,8 @@
                     android:layout_weight="1"
                     android:src="@drawable/insta"
                     android:scaleType="centerInside"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent">
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
