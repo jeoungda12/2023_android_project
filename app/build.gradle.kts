@@ -3,6 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
 
     id("com.google.gms.google-services")
+
+    //firebase db
+    id("kotlin-kapt")
 }
 
 android {
@@ -84,4 +87,10 @@ dependencies {
     //facebook
     implementation("com.facebook.android:facebook-login:latest.release")
 
+    //firebase db
+    implementation("com.google.firebase:firebase-firestore-ktx:24.3.0")
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
+    implementation("com.firebaseui:firebase-ui-storage:8.0.1")
+    implementation("com.github.bumptech.glide:compiler:4.13.2")
 }
