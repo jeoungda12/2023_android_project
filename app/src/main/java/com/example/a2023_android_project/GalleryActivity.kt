@@ -12,7 +12,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import coil.load
 import com.example.a2023_android_project.databinding.ActivityGalleryBinding
 
-
 class GalleryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,5 +50,14 @@ class GalleryActivity : AppCompatActivity() {
         binding.btnCamera.setOnClickListener{
             startActivity(Intent(this, CameraActivity::class.java))
         }
+    }
+
+    private fun makeRecyclerView(){
+        MyApplication.db.collection("news")
+            .get()
+            .addOnCompleteListener{ result ->
+                val itemList = mutableListOf<ItemData>()
+                //for (ducument in result){
+            }
     }
 }

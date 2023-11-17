@@ -14,6 +14,7 @@ class LoginActivity2 : AppCompatActivity() {
         val binding = ActivityLogin2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         //Login Button Event
         binding.loginButton.setOnClickListener{
             var email = binding.loginId.text.toString()

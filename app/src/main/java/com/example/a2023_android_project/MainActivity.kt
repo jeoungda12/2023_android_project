@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(binding.root)
 
 
+        //미인증 상태이면 로그인 페이지로 이동
+        if(MyApplication.checkAuth()){
+            if(!MyApplication.checkAuth()){
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+        }
 
         //val CAMERA = arrayListOf(Manifest.permission.)
         binding.btCommunity.setOnClickListener{
