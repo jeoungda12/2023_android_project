@@ -37,9 +37,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         //val CAMERA = arrayListOf(Manifest.permission.)
-        binding.btCommunity.setOnClickListener{
-            Log.d("button","btcommunity button success!")
-        }
+
         binding.btAiCamera.setOnClickListener{
             Log.d("button","btAiCamera button success!")
             startActivity(Intent(this, GalleryActivity::class.java))
@@ -48,8 +46,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         //예약 버튼
         binding.btReservation.setOnClickListener{
             Log.d("button","btReservation btReservation success!")
-            intent.setData(Uri.parse("https://pf.kakao.com/_axetVs/87283380"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://pf.kakao.com/_axetVs/87283380"))
             startActivity(intent)
+        }
+
+        //커뮤니티 버튼
+        binding.btCommunity.setOnClickListener{
+            startActivity(Intent(this, CommuActivity::class.java))
         }
 
         //로그아웃
@@ -62,29 +65,24 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         //네이버 인스타 유투브 외부 하이퍼링크 연결
         binding.btYoutube.setOnClickListener{
             Log.d("button","btcommunity btYoutube success!")
-            intent.setData(Uri.parse("https://www.youtube.com/@muddyday"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/@muddyday"))
             startActivity(intent)
         }
         binding.btNaver.setOnClickListener{
             Log.d("button","btcommunity btNaver success!")
-            intent.setData(Uri.parse("https://blog.naver.com/muddyday96"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://blog.naver.com/muddyday96"))
             startActivity(intent)
         }
         binding.btInsta.setOnClickListener{
             Log.d("button","btcommunity btInsta success!")
-            intent.setData(Uri.parse("https://www.instagram.com/muddyday_00/"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/muddyday_00/"))
             startActivity(intent)
         }
     }
 
-    /* */
     public override fun onStart() {
         super.onStart()
-
-
     }
-
-
 
     override fun onMapReady(p0: NaverMap) {
         TODO("Not yet implemented")

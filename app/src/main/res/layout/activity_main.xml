@@ -28,14 +28,6 @@
         </TextView>
     </LinearLayout>
 
-<!-- 로그아웃-->
-    <Button
-        android:id="@+id/bt_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그아웃">
-    </Button>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -80,13 +72,13 @@
                 android:id="@+id/bt_community"
                 android:layout_width="match_parent"
                 android:layout_height="550dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:src="@drawable/intro_background"
                 android:background="@android:color/transparent"
                 android:scaleType="centerCrop"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
-            </androidx.appcompat.widget.AppCompatImageButton>
+                android:src="@drawable/intro_background"></androidx.appcompat.widget.AppCompatImageButton>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,6 +110,16 @@
                 android:layout_height="500dp"
                 android:name="com.naver.maps.map.MapFragment" >
             </fragment>
+
+            <!-- 로그아웃-->
+            <Button
+                android:id="@+id/bt_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
+            </Button>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
